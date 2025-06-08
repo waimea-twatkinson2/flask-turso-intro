@@ -6,16 +6,18 @@
 
 {% endblock %}
 
-
 {% block content %}
 
     <h1>Flask and Turso Demo</h1>
 
     <section id="things">
 
-        <p>THINGS GO HERE!!!</p>
+        {%for thing in things%}
+            <article class="thing">
+                <h2><a href="/thing/{{ thing.id }}">{{ thing.name }}</a></h2>
+            </article>
+        {% endfor %}
 
     </section>
-
 
 {% endblock %}
