@@ -5,7 +5,6 @@ from libsql_client  import create_client_sync
 from dotenv         import load_dotenv
 import os
 
-
 # Load Turso environment variables from the .env file
 load_dotenv()
 TURSO_URL = os.getenv("TURSO_URL")
@@ -13,7 +12,6 @@ TURSO_KEY = os.getenv("TURSO_KEY")
 
 # Create the Flask app
 app = Flask(__name__)
-
 
 # Track the DB connection
 client = None
@@ -26,7 +24,6 @@ def connect_db():
     if client == None:
         client = create_client_sync(url=TURSO_URL, auth_token=TURSO_KEY)
     return client
-
 
 #-----------------------------------------------------------
 # Home Page with list of things
@@ -45,7 +42,6 @@ def home():
 def show_thing(id):
     return render_template("pages/thing.jinja")
 
-
 #-----------------------------------------------------------
 # New thing form page
 #-----------------------------------------------------------
@@ -53,14 +49,12 @@ def show_thing(id):
 def new_thing():
     return render_template("pages/thing-form.jinja")
 
-
 #-----------------------------------------------------------
 # Thing deletion
 #-----------------------------------------------------------
 @app.get("/delete/<int:id>")
 def delete_thing(id):
     return redirect("/")
-
 
 #-----------------------------------------------------------
 # 404 error handler
