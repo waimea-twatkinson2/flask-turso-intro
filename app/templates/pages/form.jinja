@@ -1,0 +1,36 @@
+{% extends 'pages/base.jinja' %}
+
+{% block title %}
+
+    Flask and Turso DB Demo - New Thing
+
+{% endblock %}
+
+{% block content %}
+
+    <h1>New Thing</h1>
+
+    <article>
+
+        <form method="POST" action="/add-thing">
+
+        <label>
+
+            Name
+            <input name="name" type="text" required>
+        
+        </label>
+
+        <label>
+
+            Price
+            <input name="price" type="number" required>
+         </label>
+
+        <button type="submit">Add the thing</button>
+
+        </form>
+        
+    </article>
+
+{% endblock %}
